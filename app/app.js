@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-var configDB = require('./config/database.js');
+var configDB = require('../config/database.js');
 
 var routes = require('../routes/index');
 var users = require('../routes/users');
@@ -42,8 +42,12 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-app.use('/', routes);
-app.use('/users', users);
+
+// routes ======================================================================
+require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+// app.use('/', routes);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
