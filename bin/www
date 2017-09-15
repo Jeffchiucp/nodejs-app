@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app/routes');
 var debug = require('debug')('pixio:server');
 var http = require('http');
 
