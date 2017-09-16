@@ -114,10 +114,12 @@ module.exports = function(passport) {
 
     }));
 
-    passport.use(new GoogleStrategy({
+    passport.use('google', new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://www.example.com/auth/google/callback"
+        // callbackURL: "http://www.example.com/auth/google/callback"
+        // callbackURL: 'https://localhost:3000/auth/google/callback'
+        callbackURL: 'http://localhost:3000/auth/google/callback'
     },
     function(accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ googleId: profile.id }, function (err, user) {
