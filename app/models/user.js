@@ -30,5 +30,19 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
+// // Google Oauth 2.0 - checking if user already exists and if not create create it
+// userSchema.statics.findOrCreate = function findOrCreate(profile, cb){
+//     var userObj = new this();
+//     this.findOne({_id : profile.id},function(err,result){
+//         if(!result){
+//             // userObj.google.name = profile.displayName;
+//             userObj.google.id = profile.googleId;
+//             userObj.save(cb);
+//         }else{
+//             cb(err,result);
+//         }
+//     });
+// };
+
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
