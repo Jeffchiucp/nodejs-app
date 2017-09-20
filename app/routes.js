@@ -62,6 +62,10 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get('/awe', function(req, res) {
+        res.render('awe.ejs', {});
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
