@@ -1,5 +1,7 @@
-# nodejs-app
+## nodejs-app
 Node.js application for users to share pictures
+#ToDo
+- Getting share feature upload
 
 # Getting started
 * Download and install Node.js
